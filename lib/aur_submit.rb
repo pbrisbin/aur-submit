@@ -37,11 +37,15 @@ class AurSubmit
 
   def submit(file)
     system(
-      '/usr/bin/curl', '-#',
-      '-H', 'Expect:', '-H', "Cookie: #{@cookie}",
-      '-F', "token=#{@token}", '-F', "category=#{@category_id}",
-      '-F', "pfile=@#{file}", '-F', 'pkgsubmit=1', "https://#{AUR}/submit"
-    )
+      "/usr/bin/curl -#" \
+      " -H 'Expect:'" \
+      " -H 'Cookie: #{@cookie}'" \
+      " -F token='#{@token}'" \
+      " -F category=#{@category_id}" \
+      " -F pfile=@'#{file}'" \
+      " -F pkgsubmit=1" \
+      " 'https://#{AUR}/submit' >/dev/null"
+    ) or raise "Curl failed"
   end
 
   private
