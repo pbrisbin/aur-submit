@@ -2,12 +2,13 @@
 _gitname='aur-submit'
 pkgname=$_gitname-git
 pkgver=0.0.0
-pkgrel=2
+pkgrel=3
 pkgdesc="Command-line AUR package submission"
 arch=('any')
 url="https://github.com/pbrisbin/$_gitname"
 license=('MIT')
-makedepends=('git' 'ruby-nokogiri')
+makedepends=('git')
+depends=('ruby-nokogiri')
 source=("git://github.com/pbrisbin/$_gitname")
 md5sums=('SKIP')
 
