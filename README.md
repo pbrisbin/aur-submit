@@ -12,7 +12,7 @@ Submit source packages to the [AUR][] from the command-line.
 % rake install
 ```
 
-*TODO*: Arch PKGBUILD
+Arch users: https://aur.archlinux.org/packages/aur-submit-git/
 
 ## Usage
 
