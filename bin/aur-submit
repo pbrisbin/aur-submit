@@ -1,0 +1,29 @@
+#!/usr/bin/env ruby
+#
+# aur-submit - pbrisbin - 2014
+#
+###
+require 'aur_submit'
+
+def ask(prompt, hide = false)
+  print "#{prompt}: "
+  system("stty -echo") if hide
+  $stdin.gets.chomp
+ensure
+  system("stty echo") if hide
+  puts if hide
+end
+
+if ARGV.empty?
+  $stderr.puts "usage: aur-submit [package file]", ""
+  $stderr.puts "  Username, Password, and Category will be prompted for,"
+  $stderr.puts "  or set AUR_{USERNAME,PASSWORD,CATEGORY} in the environment", ""
+  exit 64
+end
+
+AurSubmit.run(
+  ENV["AUR_USERNAME"] || ask("AUR Username"),
+  ENV["AUR_PASSWORD"] || ask("AUR Password", true),
+  ENV["AUR_CATEGORY"] || ask("Package Category"),
+  ARGV.first
+)
