@@ -1,3 +1,5 @@
+**ARCHIVED**: I no longer use this and won't be maintaining it.
+
 # aur-submit
 
 Submit source packages to the [AUR][] from the command-line.
